@@ -1,4 +1,4 @@
-/*
+
   module "tfplan-functions" {
   source = "../common-functions/tfplan-functions/tfplan-functions.sentinel"
 }
@@ -14,7 +14,7 @@ module "tfconfig-functions" {
 module "aws-functions" {
   source = "./aws-functions/aws-functions.sentinel"
 }
-*/
+
     
 policy "enforce-mandatory-tags" {
   source = "./enforce-mandatory-tags.sentinel"
