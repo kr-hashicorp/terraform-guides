@@ -1,17 +1,15 @@
 # This policy uses the Sentinel time import to check the excution time. 
 # The import uses Coordinated Universal Time (UTC).
-# To change the timezone to KST, do the follwoing.
-# time.now.hour+9
+# 배포 가능 시간대 확인바랍니다. 
+# 배포 가능 요일 : 월/화/수  배포 불가 요일 : 목/금/토/일
+# 배포 가능 시간 : 15시~16시
 
 #time.load("2019-11-16T01:20:30Z").add(time.hour * 9)
 
 import "time"
 
-# 배포 가능 시간대 확인바랍니다. 
-# 배포 가능 요일 : 월/화/수  배포 불가 요일 : 목/금/토/일
-# 배포 가능 시간 : 15시~16시
-
 is_weekday = rule { time.now.weekday_name not in ["Thursday", "Friday","Saturday", "Sunday"] }
-is_open_hours = rule { time.now.hour+9 >= 15 and time.now.hour+9 < 16 }
+
+is_open_hours = rule { time.now.hour +9 >= 15 and time.now.hour +9 < 16 }
 
 main = rule { is_open_hours and is_weekday }
