@@ -11,11 +11,12 @@ import "time"
 # 가능한 요일에 배포하시기 바랍니다.
 # 배포 가능 요일 : 월/화/수
 # 배포 불가 요일 : 목/금/토/일
+is_weekday = rule { time.now.weekday_name not in ["Thursday", "Friday","Saturday", "Sunday"] }
+
+
 # 배포 가능 시간대 확인
 # 업무 시간 중 다음 시간대에만 배포할 수 있습니다.
 # 배포 가능 시간 : 15시~16시
-
-is_weekday = rule { time.now.weekday_name not in ["Thursday", "Friday","Saturday", "Sunday"] }
-
 is_open_hours = rule { time.now.hour +9  > 15 and time.now.hour +9 < 15 }
+
 main = rule { is_open_hours and is_weekday }
