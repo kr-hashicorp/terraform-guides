@@ -16,12 +16,12 @@ module "azure-functions" {
 
 policy "enforce-working-day" {
     source = "./enforce-working-day.sentinel"
-     enforcement_level = "soft-mandatory"
+     enforcement_level = "hard-mandatory"
 }    
 policy "enforce-mandatory-tags" {
     source = "./enforce-mandatory-tags.sentinel"
     #enforcement_level = "advisory"
-    enforcement_level = "hard-mandatory"
+    enforcement_level = "soft-mandatory"
 }
 
 policy "restrict-aks-clusters" {
