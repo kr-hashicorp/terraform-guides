@@ -7,10 +7,10 @@
 
 import "time"
 
-
-#is_weekday = rule { time.now.weekday_name not in ["Thursday", "Friday","Saturday", "Sunday"] }
-is_weekday = rule { time.now.weekday_name not in ["Saturday", "Sunday"] }
-#is_open_hours = rule { time.now.hour > 9 and time.now.hour < 18 }
+# 다음은 배포가 불가능한 요일 목록입니다. 가능한 요일에 배포하시기 바랍니다.
+is_weekday = rule { time.now.weekday_name not in ["Thursday", "Friday","Saturday", "Sunday"] }
+#is_weekday = rule { time.now.weekday_name not in ["Saturday", "Sunday"] }
+#
 #Change time to UTC+9
 is_open_hours = rule { time.now.hour +9  > 9 and time.now.hour +9 < 18 }
 main = rule { is_open_hours and is_weekday }
