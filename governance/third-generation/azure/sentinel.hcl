@@ -16,7 +16,7 @@ module "azure-functions" {
 
 policy "enforce-working-day" {
     source = "./enforce-working-day.sentinel"
-     enforcement_level = "hard-mandatory"
+     enforcement_level = "soft-mandatory"
 }    
 policy "enforce-mandatory-tags" {
     source = "./enforce-mandatory-tags.sentinel"
